@@ -1,0 +1,20 @@
+<div class="bg-dark text-white p-3 p-sm-5 my-4 rounded">
+  <div class="text-center">
+    <h1>Welcome to Wishlist ! </h1>
+    <h2>製品名を入力して検索しよう</h2>
+    <div class="form-group">
+        <div class="search-box">
+            <%= form_with url: goods_search_path, method: :get, local: true do |f| %>
+                
+            <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
+            <%= f.submit '製品名を検索', class: "my-2 form-control btn btn-secondary" %>
+            <% end %>
+        </div>
+  </div>
+</div>
+<div class="container">
+<% if @goods.present? %>
+  <%= render 'goods/good' %>
+<% end %>
+</div>
+</div>
