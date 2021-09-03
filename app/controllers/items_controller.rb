@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :login_check, only: [:create]
   before_action :require_user_logged_in
   before_action :correct_user, only: [:destroy]
   before_action :registered, only: [:create]
@@ -21,6 +22,13 @@ class ItemsController < ApplicationController
   end
   
   private
+  
+  def login_check
+    unless logged_in?
+      flash[:danger] = "ログインしてください"
+      redirect_to login_path
+    end
+  end
   
   def registered
     if current_user.items.find_by(item_code: params[:item][:item_code])
