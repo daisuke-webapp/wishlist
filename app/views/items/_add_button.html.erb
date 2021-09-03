@@ -1,0 +1,9 @@
+<%= form_with(model: current_user.favorites.build) do |f| %>
+      <%= hidden_field_tag :image_url, ['mediumImageUrls'][0] %>
+      <%= hidden_field_tag :name, good.name %>
+      <%= hidden_field_tag :url, good.url %>
+      <%= hidden_field_tag :price, good.price %>
+      <%= hidden_field_tag :item_code, good.code %>
+      <%= f.submit 'Add Your Wishlist', class: 'mx-1 btn btn-success btn-sm' %>
+    <% end %>
+  <% end %>
