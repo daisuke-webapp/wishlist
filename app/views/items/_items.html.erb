@@ -1,7 +1,7 @@
 <% if items.any? %>
 <% items.each do |item| %>
 <div class="row">
-    <div class="col-md-3"><%= image_tag(item.image_url) %></div>
+    <div class="col-md-3"><%= image_tag(item.image_url, alt:item.name) %></div>
     <div class="col-md-5"><%= link_to item.name, "#{item.url}" %></div>
     <div class="col-md-3">価格：<%= number_with_delimiter(item.price) %>円</div>
     <div class="col-md-1"><%=  link_to "Delete", item, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %></div>
