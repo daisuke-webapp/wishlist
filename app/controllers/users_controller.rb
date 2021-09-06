@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   
   def correct_user
     if  current_user.id.to_s != params[:id]
-        flash[:danger] = 'ログインユーザーでないと閲覧できません'
+        flash[:danger] = 'アクセス権がありません'
         redirect_to root_url
     end
   end
