@@ -4,6 +4,7 @@ class GoodsController < ApplicationController
        flash.now[:danger] = '2文字以上入力してください'
     elsif params[:keyword]
       @goods = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
+      
     end
   end
 end
